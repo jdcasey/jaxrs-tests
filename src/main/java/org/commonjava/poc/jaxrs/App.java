@@ -1,13 +1,22 @@
 package org.commonjava.poc.jaxrs;
 
-/**
- * Hello world!
- *
- */
-public class App 
+import org.commonjava.propulsor.boot.BootException;
+import org.commonjava.propulsor.boot.Booter;
+
+public class App
 {
-    public static void main( String[] args )
+
+    public static void main( final String[] args )
     {
-        System.out.println( "Hello World!" );
+        final AppOptions options = new AppOptions();
+        try
+        {
+            new Booter().runAndWait( options );
+        }
+        catch ( final BootException e )
+        {
+            e.printStackTrace();
+        }
     }
+
 }
